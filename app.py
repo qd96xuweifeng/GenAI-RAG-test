@@ -9,7 +9,7 @@ from langchain.embeddings import OpenAIEmbeddings
 st.title("📘 Company Policy Assistant (RAG)")
 os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
 embedding = OpenAIEmbeddings()
-vectorstore = FAISS.load_local("faiss_index", embedding)
+vectorstore = FAISS.load_local("faiss_index", embedding, allow_dangerous_deserialization=True)
 
 # --- Initialize Retrieval-based QA Chain ---
 qa_chain = RetrievalQA.from_chain_type(
