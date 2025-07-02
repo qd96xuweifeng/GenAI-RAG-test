@@ -1,4 +1,5 @@
 import streamlit as st
+import os
 from langchain.chat_models import ChatOpenAI
 from langchain.chains import RetrievalQA
 from langchain.vectorstores import FAISS
@@ -6,6 +7,7 @@ from langchain.embeddings import OpenAIEmbeddings
 
 # --- Load Embeddings and Vectorstore ---
 st.title("📘 Company Policy Assistant (RAG)")
+os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
 embedding = OpenAIEmbeddings()
 vectorstore = FAISS.load_local("faiss_index", embedding)
 
