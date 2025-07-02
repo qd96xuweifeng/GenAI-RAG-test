@@ -1,8 +1,0 @@
-openai
-langchain>=0.1.16
-langchain-community
-streamlit
-faiss-cpu
-python-dotenv
-langchain-openai
-tiktoken
